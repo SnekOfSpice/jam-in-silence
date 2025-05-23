@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cumdf8pkppode"]
+
+[ext_resource type="FontFile" uid="uid://ceby2ufrsqfgm" path="res://game/visuals/theme/fonts/cabin/Cabin-Regular.ttf" id="1_v4m4g"]
+
+[resource]
+base_font = ExtResource("1_v4m4g")
+variation_transform = Transform2D(0.755, 0, 0, 1.07, 0, 1)
+spacing_glyph = -1

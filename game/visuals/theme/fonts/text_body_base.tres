@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bomoubv7qgy1i"]
+
+[ext_resource type="FontFile" uid="uid://ceby2ufrsqfgm" path="res://game/visuals/theme/fonts/cabin/Cabin-Regular.ttf" id="1_rmpvk"]
+
+[resource]
+base_font = ExtResource("1_rmpvk")
+variation_embolden = -0.16
+spacing_top = -2
+baseline_offset = -0.045

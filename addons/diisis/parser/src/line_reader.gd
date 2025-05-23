@@ -317,6 +317,7 @@ var line_index := 0
 var _remaining_auto_pause_duration := 0.0
 
 var _showing_text := false
+var _text_delay := 0.0
 
 var _lead_time := 0.0
 var _next_pause_position_index := -1
@@ -407,6 +408,7 @@ func serialize() -> Dictionary:
 	result["remaining_auto_pause_duration"] = _remaining_auto_pause_duration 
 	result["showing_text"] = _showing_text 
 	result["terminated"] = terminated
+	result["_text_delay"] = _text_delay
 	result["text_speed_by_character_index"] = _text_speed_by_character_index
 	if persist_ui_visibilities:
 		result["ui_visibilities"] = get_ui_visibilities()
@@ -449,6 +451,7 @@ func deserialize(data: Dictionary):
 	_remaining_auto_pause_duration = data.get("remaining_auto_pause_duration")
 	_showing_text = data.get("showing_text")
 	terminated = data.get("terminated")
+	_text_delay = data.get("_text_delay", _text_delay)
 	_text_speed_by_character_index = data.get("text_speed_by_character_index", [])
 	
 	_set_choice_title_or_warn(data.get("current_choice_title", ""))
@@ -600,6 +603,7 @@ func request_advance():
 func advance():
 	_last_visible_characters = 0
 	_last_visible_ratio = 0
+	_text_delay = 0
 	if auto_continue:
 		_auto_continue_duration = auto_continue_delay
 	if _showing_text:
@@ -770,11 +774,17 @@ func _read_new_line(new_line: Dictionary):
 						var actor_prefix := ""
 						if not actor_name in blank_names:
 							actor_prefix = _get_chatlog_name(actor_name) + ": "
+						
+						var body_prefix : String = body_label_prefix_by_actor.get(actor_name, "")
+						var body_suffix : String = body_label_suffix_by_actor.get(actor_name, "")
+						
 						line = str(
 							"[color=", _get_chatlog_color(actor_name).to_html(), "]",
 							actor_prefix,
 							"[/color]" if not chatlog_tint_full_line else "",
+							body_prefix,
 							line,
+							body_suffix,
 							"[/color]" if chatlog_tint_full_line else "",
 							)
 					_dialog_lines.append(line)
@@ -999,6 +1009,11 @@ func _process(delta: float) -> void:
 		
 		is_executing = false
 		return
+	
+	if _showing_text:
+		if _text_delay > 0:
+			_text_delay -= delta
+			return
 	
 	var visible_characters_before_inline_call = body_label.visible_characters
 	if awaiting_inline_call:
@@ -1334,6 +1349,7 @@ func _read_next_chunk():
 	if text_speed == MAX_TEXT_SPEED:
 		body_label.visible_ratio = 1.0
 	else:
+		body_label.visible_ratio = 0
 		body_label.visible_characters = _visible_prepend_offset
 	
 	_pause_positions.clear()
@@ -1603,11 +1619,16 @@ func _set_body_label_text(text: String):
 
 	
 	body_label.text = text
+	body_label.visible_ratio = 0
 	body_label.visible_characters = _visible_prepend_offset
 	_characters_visible_so_far = ""
 	_started_word_buffer = ""
 	
 	_last_raw_name = current_raw_name
+
+## If showing text. Resets on successful [method request_advance] call.
+func add_text_display_delay(duration:float):
+	_text_delay += duration
 
 func _wrap_in_color_tags_if_present(actor_name:String) -> String:
 	var color : Color = _get_actor_color(_last_raw_name)

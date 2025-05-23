@@ -142,6 +142,7 @@ func on_acceded():
 		#ui_tween.kill()
 	ui_tween = create_tween()
 	ui_tween.tween_property(find_child("VNUI"), "modulate:a", 1, 1)
+	$LineReader.add_text_display_delay(.6)
 	$LineReader.body_label.text = ""
 
 func go_to_main_menu(_unused):
@@ -525,4 +526,4 @@ func _on_line_reader_request_hide_history_button() -> void:
 
 
 func _on_fullscreen_button_pressed() -> void:
-	Options.set_fullscreen(not Options.fullscreen)
+	Options.toggle_fullscreen()

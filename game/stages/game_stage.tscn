@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://r1ntcqdujfol"]
+[gd_scene load_steps=47 format=3 uid="uid://r1ntcqdujfol"]
 
 [ext_resource type="Script" uid="uid://j84s4qlkmfxw" path="res://game/stages/game_stage.gd" id="1_a36me"]
 [ext_resource type="FontFile" uid="uid://dy8rsqmwhxjp6" path="res://addons/diisis/editor/visuals/theme/fonts/TT Chocolates Trial Bold.otf" id="2_6jeks"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://qkegdwc8ux5o" path="res://game/stages/black_fade.tscn" id="8_50byo"]
 [ext_resource type="Script" uid="uid://c2vvnjn4tl6a7" path="res://game/stages/game_camera.gd" id="9_lbjue"]
 [ext_resource type="Script" uid="uid://cxhdkxbk2nop" path="res://game/screens/auto_scroll_container.gd" id="9_qvfwk"]
-[ext_resource type="FontFile" uid="uid://c3pmso2ge1bdy" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Condensed.ttf" id="10_knhaa"]
 [ext_resource type="Texture2D" uid="uid://cucy0w8iuhtna" path="res://game/visuals/fullscreen_hover.png" id="12_7jfvv"]
 [ext_resource type="PackedScene" uid="uid://cjy7vf1xrnq5y" path="res://game/screens/chapter_cover.tscn" id="12_vf2y4"]
 [ext_resource type="Texture2D" uid="uid://bh0pa7grmx47d" path="res://game/visuals/fullscreen.png" id="13_n0qn6"]
@@ -294,7 +293,9 @@ layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 1
 bbcode_enabled = true
-text = "h"
+text = "so theres a a bunch if text here
+uwuwuwu
+erkhjgjdf"
 fit_content = true
 scroll_active = false
 
@@ -564,7 +565,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_knhaa")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxEmpty_scr08")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hkxqd")

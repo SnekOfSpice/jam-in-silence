@@ -36,7 +36,7 @@ func set_audio_player_volume(volume:float):
 func play_sfx(sfx:String):
 	var player := AudioStreamPlayer.new()
 	player.stream = load(CONST.fetch("SFX", sfx))
-	player.set_bus("SFX")
+	player.set_bus("Master")
 	add_child(player)
 	player.play()
 	player.pitch_scale = randf_range(0.75, 1.0 / 0.75)
@@ -65,7 +65,7 @@ func play_bgm(bgm:String, fade_in:=0.0, from:=0.0):
 		return
 	music_player.stream = load(music_path)
 	music_player.volume_db = -80
-	music_player.set_bus("Music")
+	music_player.set_bus("Master")
 	
 	if fade_in > 0.0:
 		var t = create_tween()
@@ -93,4 +93,5 @@ func fade_out_bgm(fade_out_time:float):
 	if not main_audio_player:
 		return
 	var t = create_tween()
+	
 	t.tween_property(main_audio_player, "volume_db", linear_to_db(0.0001), fade_out_time)

@@ -1,12 +1,8 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://culiy8l2xf38k"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://culiy8l2xf38k"]
 
-[ext_resource type="FontFile" uid="uid://clrlhmyq33ss4" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Bold.ttf" id="1_5ak1x"]
-[ext_resource type="FontFile" uid="uid://cpirwl4u04525" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-MediumCondensed.ttf" id="1_8qr13"]
-[ext_resource type="FontFile" uid="uid://dk1h87dt7728o" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-BoldItalic.ttf" id="2_8qr13"]
-[ext_resource type="FontFile" uid="uid://c3pmso2ge1bdy" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Condensed.ttf" id="2_eg5l4"]
-[ext_resource type="FontFile" uid="uid://ddhwppkrj84eo" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Italic.ttf" id="3_eg5l4"]
+[ext_resource type="FontVariation" uid="uid://cumdf8pkppode" path="res://game/visuals/theme/fonts/button_font.tres" id="1_8qr13"]
+[ext_resource type="FontVariation" uid="uid://bomoubv7qgy1i" path="res://game/visuals/theme/fonts/text_body_base.tres" id="3_ypn28"]
 [ext_resource type="FontFile" uid="uid://dyifmxbyb5yyg" path="res://game/visuals/theme/fonts/defraud.otf" id="4_b8ewa"]
-[ext_resource type="FontFile" uid="uid://dedi8is4nedng" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Regular.ttf" id="5_wclnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8ewa"]
 content_margin_left = 2.0
@@ -59,13 +55,10 @@ Button/fonts/font = ExtResource("1_8qr13")
 Button/styles/hover = SubResource("StyleBoxFlat_b8ewa")
 Button/styles/normal = SubResource("StyleBoxFlat_wclnf")
 Button/styles/pressed = SubResource("StyleBoxFlat_o03vp")
-Label/fonts/font = ExtResource("2_eg5l4")
+Label/fonts/font = ExtResource("1_8qr13")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_lp50m")
-RichTextLabel/fonts/bold_font = ExtResource("1_5ak1x")
-RichTextLabel/fonts/bold_italics_font = ExtResource("2_8qr13")
-RichTextLabel/fonts/italics_font = ExtResource("3_eg5l4")
 RichTextLabel/fonts/mono_font = ExtResource("4_b8ewa")
-RichTextLabel/fonts/normal_font = ExtResource("5_wclnf")
+RichTextLabel/fonts/normal_font = ExtResource("3_ypn28")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_eg5l4")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_a7cle")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_5bk5e")
