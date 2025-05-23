@@ -11,7 +11,7 @@ var screen := ""
 var screenshot_to_save:Image
 
 func _ready():
-	change_stage(CONST.STAGE_MAIN)
+	change_stage(CONST.STAGE_GAME)
 	set_screen("")
 	GameWorld.stage_root = self
 
@@ -68,7 +68,6 @@ func set_background(background:String, fade_time:=0.0):
 		background = GameWorld.background
 	var path = CONST.fetch("BACKGROUND", background)
 	if not path:
-		push_warning(str("COULDN'T FIND BACKGROUND ", background, "!"))
 		return
 	var new_background:Node2D
 	var old_backgrounds:=$Background.get_children()

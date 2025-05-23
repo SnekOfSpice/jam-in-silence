@@ -540,10 +540,11 @@ func open_from_path(path:String):
 	find_child("TextSizeButton").select(editor_data.get("text_size_id", 3))
 	
 	for button : PageViewButton in find_child("ViewTypesButtonContainer").get_children():
-		button.pressed.connect(update_page_view.bind(button.page_view))
+		if not button.pressed.is_connected(update_page_view):
+			button.pressed.connect(update_page_view.bind(button.page_view))
 	
 	await get_tree().process_frame
-	set_text_size(editor_data.get("text_size_id", 4))
+	set_text_size(editor_data.get("text_size_id", 3))
 	update_page_view(editor_data.get("page_view", PageView.Full))
 	
 	var ingest_menu : PopupMenu = find_child("IngestMenu")
@@ -661,6 +662,7 @@ func open_facts_window(fact_to_select:=""):
 # opens opoup if active_dir isn't set, otherwise saves to file
 func attempt_save_to_dir():
 	if active_dir.is_empty():
+		open_save_popup()
 		return
 	save_to_file(str(active_dir, active_file_name))
 

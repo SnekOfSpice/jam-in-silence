@@ -40,11 +40,12 @@ func update_load_button():
 	
 
 func _gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		if GameWorld.stage_root.get_node("ScreenContainer").get_child_count() == 0:
-			GameWorld.stage_root.set_screen("")
-		else:
-			GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
+	return
+	#if event.is_action_pressed("ui_cancel"):
+		#if GameWorld.stage_root.get_node("ScreenContainer").get_child_count() == 0:
+			#GameWorld.stage_root.set_screen("")
+		#else:
+			#GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
 
 func set_save_slot(slot:int):
 	find_child("SaveSlotLabel").text = str("Current Save Slot: ", slot + 1)

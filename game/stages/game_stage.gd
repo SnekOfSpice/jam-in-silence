@@ -129,8 +129,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey:
 		if event.pressed:
-			if InputMap.action_has_event("ui_cancel", event):
-				GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
+			#if InputMap.action_has_event("ui_cancel", event):
+				#GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
 			if InputMap.action_has_event("screenshot", event):
 				var screenshot := get_viewport().get_texture().get_image()
 				var path := str("user://screenshot_", ProjectSettings.get_setting("application/config/name"), "_", Time.get_datetime_string_from_system().replace(":", "-"), ".png")
@@ -152,9 +152,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			if InputMap.action_has_event("cheats", event) and OS.has_feature("editor"):
 				find_child("Cheats").visible = not find_child("Cheats").visible
 				
-	if event is InputEventMouse:
-		if event.is_pressed() and InputMap.action_has_event("ui_cancel", event):
-			GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
+	#if event is InputEventMouse:
+		#if event.is_pressed() and InputMap.action_has_event("ui_cancel", event):
+			#GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
 
 	if event.is_action_pressed("advance"):
 		for root in cg_roots:
@@ -429,7 +429,8 @@ func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 	OS.shell_open(str(meta))
 
 func _on_menu_button_pressed() -> void:
-	GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
+	return
+	#GameWorld.stage_root.set_screen(CONST.SCREEN_OPTIONS)
 
 func _on_chapter_cover_chapter_intro_finished() -> void:
 	Parser.function_acceded()
