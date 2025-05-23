@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://m5d1vx3u4trq"
+path="res://.godot/imported/Opal Vessel - Bound in Flesh - 01 Pale Offering.ogg-dd12a9ba17d0fdb3d29a66ff754b8255.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/sounds/music/Opal Vessel - Bound in Flesh - 01 Pale Offering.ogg"
+dest_files=["res://.godot/imported/Opal Vessel - Bound in Flesh - 01 Pale Offering.ogg-dd12a9ba17d0fdb3d29a66ff754b8255.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

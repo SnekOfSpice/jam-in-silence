@@ -251,15 +251,7 @@ func on_window_request_reload_editor():
 	await get_tree().process_frame
 	open_editor()
 
-var was_playing_scene := false
 func _process(delta: float) -> void:
-	if not was_playing_scene and EditorInterface.is_playing_scene():
-		if not Engine.has_singleton("Pages"):
-			return
-		var pages = Engine.get_singleton("Pages")
-		if is_instance_valid(pages.editor) and pages.save_on_play:
-			pages.editor.save_to_dir_if_active_dir()
-	was_playing_scene = EditorInterface.is_playing_scene()
 	if is_instance_valid(dia_editor_window):
 		dia_editor_window.wrap_controls = true
 

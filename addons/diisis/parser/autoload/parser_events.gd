@@ -220,3 +220,6 @@ signal line_skipped()
 
 ## Emitted when [method LineReader.request_advance] successfully advances the [LineReader].
 signal advanced()
+
+## Emitted when [method Parser.function_acceded] is called.
+signal acceded()

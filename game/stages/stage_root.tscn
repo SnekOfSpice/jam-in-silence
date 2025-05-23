@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce72qyvaredxn"]
+[gd_scene load_steps=4 format=3 uid="uid://ce72qyvaredxn"]
 
+[ext_resource type="Theme" uid="uid://culiy8l2xf38k" path="res://game/visuals/theme/nowhere_belonging_theme.tres" id="1_5mv20"]
 [ext_resource type="Theme" uid="uid://drk5fhsdjoewf" path="res://game/visuals/theme/diisis_theme.tres" id="1_twmxo"]
 [ext_resource type="Script" uid="uid://2ixj0k2jnsqy" path="res://game/stages/stage_root.gd" id="1_uh8ly"]
 
@@ -11,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("1_twmxo")
+theme = ExtResource("1_5mv20")
 script = ExtResource("1_uh8ly")
 screen_fade_in = 0.148651
 screen_fade_out = 0.0883884

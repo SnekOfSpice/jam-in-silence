@@ -729,8 +729,8 @@ func _read_new_line(new_line: Dictionary):
 		content = Parser.get_text(raw_content.get("text_id"))
 	var content_name = _line_data.get("content").get("name")
 	
-	for key in UI_PROPERTIES:
-		get(key).visible = true
+	#for key in UI_PROPERTIES:
+		#get(key).visible = get
 	text_container.visible = _can_text_container_be_visible()
 	_showing_text = line_type == DIISIS.LineType.Text
 	choice_container.visible = line_type == DIISIS.LineType.Choice
@@ -979,7 +979,6 @@ func _process(delta: float) -> void:
 		
 		if not has_executed:
 			ParserEvents.instruction_started_after_delay.emit(execution_text, delay_before)
-			#emit_signal("execute_instruction", execution_args)
 			has_executed = true
 			has_received_execute_callback = not execute(execution_text)
 		
@@ -1631,11 +1630,11 @@ func set_body_label(new_body_label:RichTextLabel, keep_text := true):
 		body_label.text = old_text
 
 ## Helper function that you can use to switch [param keep_past_lines] to true and transfer all data to the [param new_label]. [param new_label] becomes [param body_label].
-func enable_keep_past_lines(container: VBoxContainer, new_label:=body_label, new_name_style := name_style):
+func enable_keep_past_lines(container: VBoxContainer, keep_text := false, new_label:=body_label, new_name_style := name_style):
 	keep_past_lines = true
 	self.past_lines_container = container
 	name_style = new_name_style
-	set_body_label(new_label)
+	set_body_label(new_label, keep_text)
 
 func _find_next_pause():
 	if _pause_types.size() > 0 and _next_pause_position_index < _pause_types.size():

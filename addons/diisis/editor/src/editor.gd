@@ -228,9 +228,16 @@ func set_save_path(value:String):
 	emit_signal("save_path_set", active_dir, active_file_name)
 	DiisisEditorUtil.set_project_file_path(active_dir, active_file_name)
 
+var was_playing_scene := false
 func _process(delta: float) -> void:
 	if not is_open:
 		return
+	
+	if not was_playing_scene and EditorInterface.is_playing_scene():
+		if Pages.save_on_play:
+			save_to_dir_if_active_dir()
+	was_playing_scene = EditorInterface.is_playing_scene()
+	
 	if not active_dir.is_empty() and has_saved:
 		time_since_last_save += delta
 	

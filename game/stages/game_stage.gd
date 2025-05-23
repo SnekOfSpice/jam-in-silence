@@ -21,7 +21,6 @@ var cg := ""
 var cg_position := ""
 var base_cg_offset : Vector2
 var is_name_container_visible := false
-var hovering_meta := false
 
 @onready var text_container_custom_minimum_size : Vector2 = find_child("TextContainer1").custom_minimum_size
 @onready var rtl_custom_minimum_size : Vector2 = find_child("BodyLabel").custom_minimum_size
@@ -53,9 +52,9 @@ func _ready():
 	find_child("StartCover").visible = true
 	ParserEvents.actor_name_changed.connect(on_actor_name_changed)
 	ParserEvents.body_label_text_changed.connect(on_body_label_text_changed)
-	ParserEvents.page_terminated.connect(go_to_main_menu)
-	ParserEvents.instruction_started.connect(on_instruction_started)
-	ParserEvents.instruction_completed.connect(on_instruction_completed)
+	#ParserEvents.page_terminated.connect(go_to_main_menu)
+	ParserEvents.function_called.connect(on_function_called)
+	ParserEvents.acceded.connect(on_acceded)
 	ParserEvents.read_new_line.connect(on_read_new_line)
 	ParserEvents.new_header.connect(on_new_header)
 	
@@ -80,7 +79,7 @@ func _ready():
 	if callable_upon_blocker_clear:
 		callable_upon_blocker_clear.call()
 	else:
-		Parser.reset_and_start(2)
+		Parser.reset_and_start(7, 2)
 	
 	await get_tree().process_frame
 	find_child("StartCover").visible = false
@@ -95,10 +94,18 @@ func on_new_header(header:Array[Dictionary]):
 				var enabled : bool = property.get("values")[0]
 				$LineReader.chatlog_enabled = enabled
 				%PastContainer.visible = enabled
+				%PastParent.visible = enabled
 				if enabled:
 					$LineReader.custom_text_speed_override = LineReader.MAX_TEXT_SPEED
+					for child in %PastContainer.get_children():
+						child.queue_free()
+					for i in 100:
+						var filler = Control.new()
+						filler.custom_minimum_size.y = 30
+						filler.mouse_filter = Control.MOUSE_FILTER_IGNORE
+						%PastContainer.add_child(filler)
 					$LineReader.enable_keep_past_lines(
-						%PastContainer
+						%PastContainer,
 					)
 				else:
 					$LineReader.custom_text_speed_override = -1
@@ -107,19 +114,25 @@ func on_new_header(header:Array[Dictionary]):
 func on_tree_exit():
 	GameWorld.game_stage = null
 
-func on_instruction_started(
-	instruction_text : String,
-	_delay : float,
-):
-	if instruction_text.begins_with("black_fade"):
-		find_child("ControlsContainer").visible = false
+var ui_tween:Tween
 
-func on_instruction_completed(
-	instruction_text : String,
-	_delay : float,
+func on_function_called(
+	method_name: String,
+	arguments: Array,
+	at_index: int
 ):
-	if instruction_text.begins_with("black_fade"):
-		find_child("ControlsContainer").visible = true
+	if method_name == "black_fade":
+		if ui_tween:
+			ui_tween.kill()
+		ui_tween = create_tween()
+		ui_tween.tween_property(find_child("VNUI"), "modulate:a", 0, 1)
+
+func on_acceded():
+	if ui_tween:
+		ui_tween.kill()
+	ui_tween = create_tween()
+	ui_tween.tween_property(find_child("VNUI"), "modulate:a", 1, 1)
+	$LineReader.body_label.text = ""
 
 func go_to_main_menu(_unused):
 	GameWorld.stage_root.change_stage(CONST.STAGE_MAIN)
@@ -132,9 +145,11 @@ func _process(_delta: float) -> void:
 	static_mat.set_shader_parameter("intensity", lerp(static_mat.get_shader_parameter("intensity"), target_static, 0.02))
 	static_mat.set_shader_parameter("border_size", lerp(static_mat.get_shader_parameter("border_size"), 1 - target_static, 0.02))
 	
-	orgasm_mat.set_shader_parameter("lod", lerp(orgasm_mat.get_shader_parameter("lod"), 0.0, 0.000175))
+	orgasm_mat.set_shader_parameter("lod", lerp(orgasm_mat.get_shader_parameter("lod"), randfn(.5, .025), 0.000175))
 	
 	find_child("VFXLayer").position = -camera.offset * camera.zoom.x
+
+
 
 func cum(_voice:String):
 	orgasm_mat.set_shader_parameter("lod", 1.8)
@@ -180,11 +195,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				return
 		if not find_child("VNUI").visible:
 			return
-		if hovering_meta:
-			return
 		line_reader.request_advance()
-	elif event.is_action_pressed("go_back"):
-		line_reader.request_go_back()
+	#elif event.is_action_pressed("go_back"):
+		#line_reader.request_go_back()
 
 func show_ui():
 	if is_instance_valid(find_child("VNUI")):
@@ -493,9 +506,3 @@ func set_static(level:float):
 func set_fade_out(lod:float, mix:float):
 	target_lod = lod
 	target_mix = mix
-
-func _on_rich_text_label_meta_hover_ended(_meta: Variant) -> void:
-	hovering_meta = false
-
-func _on_rich_text_label_meta_hover_started(_meta: Variant) -> void:
-	hovering_meta = true

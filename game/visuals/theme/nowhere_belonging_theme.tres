@@ -1,3 +1,48 @@
-[gd_resource type="Theme" format=3 uid="uid://culiy8l2xf38k"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://culiy8l2xf38k"]
+
+[ext_resource type="FontFile" uid="uid://clrlhmyq33ss4" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Bold.ttf" id="1_5ak1x"]
+[ext_resource type="FontFile" uid="uid://cpirwl4u04525" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-MediumCondensed.ttf" id="1_8qr13"]
+[ext_resource type="FontFile" uid="uid://dk1h87dt7728o" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-BoldItalic.ttf" id="2_8qr13"]
+[ext_resource type="FontFile" uid="uid://c3pmso2ge1bdy" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Condensed.ttf" id="2_eg5l4"]
+[ext_resource type="FontFile" uid="uid://ddhwppkrj84eo" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Italic.ttf" id="3_eg5l4"]
+[ext_resource type="FontFile" uid="uid://dyifmxbyb5yyg" path="res://game/visuals/theme/fonts/defraud.otf" id="4_b8ewa"]
+[ext_resource type="FontFile" uid="uid://dedi8is4nedng" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Regular.ttf" id="5_wclnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8ewa"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+bg_color = Color(0.0475577, 0.0475577, 0.0475576, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wclnf"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o03vp"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lp50m"]
+bg_color = Color(0.123018, 0.0713, 0.31, 0.52549)
+border_width_left = 5
+border_width_top = 3
+border_width_right = 5
+border_width_bottom = 4
+border_color = Color(0.01, 0.01, 0.01, 0.717647)
+border_blend = true
 
 [resource]
+Button/fonts/font = ExtResource("1_8qr13")
+Button/styles/hover = SubResource("StyleBoxFlat_b8ewa")
+Button/styles/normal = SubResource("StyleBoxFlat_wclnf")
+Button/styles/pressed = SubResource("StyleBoxFlat_o03vp")
+Label/fonts/font = ExtResource("2_eg5l4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_lp50m")
+RichTextLabel/fonts/bold_font = ExtResource("1_5ak1x")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_8qr13")
+RichTextLabel/fonts/italics_font = ExtResource("3_eg5l4")
+RichTextLabel/fonts/mono_font = ExtResource("4_b8ewa")
+RichTextLabel/fonts/normal_font = ExtResource("5_wclnf")

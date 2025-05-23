@@ -19,8 +19,7 @@ const BACKGROUND_DEFAULT := "void.png"
 const BACKGROUND_SKYLINE := "skyline.png"
 
 const MUSIC_ROOT := "res://game/sounds/music/"
-const MUSIC_DEFAULT := "Loyalty Freak Music - CHILL FOR REAL ! - 06 Vroom Vroom Heart Heart -blob_0w0-​.ogg"
-const MUSIC_MAIN_MENU := "Modela - It's Not Pretty Here.ogg"
+const MUSIC_DEFAULT := "Opal Vessel - Bound in Flesh - 01 Pale Offering.ogg"
 
 const SFX_ROOT := "res://game/sounds/sfx/"
 const SFX_CLICK := "637345__kyles__camera-toy-single-shot-nice-stereo.ogg"
