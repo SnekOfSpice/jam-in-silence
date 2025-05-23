@@ -14,6 +14,7 @@ func _ready() -> void:
 	$Label.visible = true
 
 func start():
+	visible = true
 	await get_tree().create_timer(1.0).timeout
 	Parser.line_reader.set_sun("steps", 3.7)
 	await get_tree().create_timer(1.5).timeout

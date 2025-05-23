@@ -180,7 +180,6 @@ icon = ExtResource("9_f7stu")
 layout_mode = 2
 
 [node name="HeadVisibilityToggle" type="CheckButton" parent="PanelContainer/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MoveControlsContainer/VBoxContainer/HBoxContainer/Controls"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

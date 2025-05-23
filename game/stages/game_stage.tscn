@@ -1,15 +1,14 @@
-[gd_scene load_steps=42 format=3 uid="uid://r1ntcqdujfol"]
+[gd_scene load_steps=41 format=3 uid="uid://r1ntcqdujfol"]
 
 [ext_resource type="Script" uid="uid://j84s4qlkmfxw" path="res://game/stages/game_stage.gd" id="1_a36me"]
 [ext_resource type="FontFile" uid="uid://dy8rsqmwhxjp6" path="res://addons/diisis/editor/visuals/theme/fonts/TT Chocolates Trial Bold.otf" id="2_6jeks"]
 [ext_resource type="Script" uid="uid://bqw08o3b22fdc" path="res://game/stages/line_reader_custom.gd" id="3_pms35"]
-[ext_resource type="PackedScene" uid="uid://chfbyvpvah4eu" path="res://game/characters/character.tscn" id="3_tdgll"]
 [ext_resource type="Script" uid="uid://brouc1vl1o5us" path="res://game/stages/objects.gd" id="3_x2eff"]
 [ext_resource type="Texture2D" uid="uid://delwppkladi0u" path="res://addons/diisis/editor/visuals/more.svg" id="5_7sulw"]
 [ext_resource type="Texture2D" uid="uid://bh7mo1v26xtqq" path="res://addons/diisis/editor/visuals/theme/buttons_ui/helpZeichenfläche 3.png" id="6_mh4vb"]
+[ext_resource type="Theme" uid="uid://culiy8l2xf38k" path="res://game/visuals/theme/nowhere_belonging_theme.tres" id="7_knhaa"]
 [ext_resource type="PackedScene" uid="uid://qkegdwc8ux5o" path="res://game/stages/black_fade.tscn" id="8_50byo"]
 [ext_resource type="Script" uid="uid://c2vvnjn4tl6a7" path="res://game/stages/game_camera.gd" id="9_lbjue"]
-[ext_resource type="Theme" uid="uid://drk5fhsdjoewf" path="res://game/visuals/theme/diisis_theme.tres" id="11_n0ymb"]
 [ext_resource type="PackedScene" uid="uid://cjy7vf1xrnq5y" path="res://game/screens/chapter_cover.tscn" id="12_vf2y4"]
 [ext_resource type="PackedScene" uid="uid://biu88w163ploy" path="res://game/systems/cheats.tscn" id="13_qackq"]
 [ext_resource type="Script" uid="uid://byyv78vc44g4u" path="res://game/stages/start_cover.gd" id="13_qfsh6"]
@@ -89,10 +88,16 @@ script = ExtResource("1_a36me")
 [node name="LineReader" type="Node" parent="." node_paths=PackedStringArray("name_label", "body_label", "choice_list", "text_container", "name_container", "choice_container", "choice_title_label", "prompt_unfinished", "prompt_finished")]
 script = ExtResource("3_pms35")
 auto_pause_duration = 0.4
-blank_names = Array[String](["narrator"])
-name_map = Dictionary[String, String]({
-"amber": "Amber"
+color_map = Dictionary[String, Color]({
+"impawsiblzzzz": Color(0.848256, 0.890501, 0.994887, 1),
+"lucy": Color(0.767581, 0.104263, 0.676456, 1),
+"pedro": Color(0.544021, 0.769903, 0.204077, 1),
+"rose": Color(0.742158, 0.448695, 0.905959, 1),
+"starcvtcher": Color(0.491673, 0.549573, 0.871955, 1),
+"stella": Color(0.98, 0.85064, 0.3332, 1),
+"system": Color(1, 1, 1, 1)
 })
+name_style = 2
 name_label = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/NameContainer/MarginContainer/NameLabel")
 body_label = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/MarginContainer2/Panel/MarginContainer/BodyLabel")
 choice_list = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/ChoiceContainer/VBoxContainer/ChoiceOptionContainer")
@@ -100,9 +105,21 @@ text_container = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContain
 name_container = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/NameContainer")
 choice_container = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/ChoiceContainer")
 choice_title_label = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/ChoiceContainer/VBoxContainer/Label")
+body_label_prefix_by_actor = Dictionary[String, String]({
+"system": "[code]"
+})
+body_label_suffix_by_actor = Dictionary[String, String]({
+"system": "[/code]"
+})
 body_label_function_funnel = Array[String](["Style.adjust_font_size_tags"])
+body_label_tint_lines = true
+chatlog_fuse_lines = false
+chatlog_name_map = Dictionary[String, String]({
+"lucy": "infinite_summer",
+"stella": "shore7777"
+})
+chatlog_fallback_color_map = true
 choice_button_keyboard_focus = false
-show_input_prompt = true
 input_prompt_delay = 1.29
 input_prompt_lerp_weight = 0.233
 prompt_unfinished = NodePath("../Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/HBoxContainer/PageUnfinished")
@@ -113,12 +130,8 @@ script = ExtResource("3_x2eff")
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Character" parent="Characters" instance=ExtResource("3_tdgll")]
-position = Vector2(559, 375)
-character_name = "amber"
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(300, 225)
 script = ExtResource("9_lbjue")
 
 [node name="CGBottom" type="CanvasLayer" parent="Camera2D"]
@@ -179,7 +192,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("11_n0ymb")
+theme = ExtResource("7_knhaa")
 
 [node name="VNUI" type="Control" parent="Camera2D/VNUICanvasLayer/VNUIRoot"]
 auto_translate_mode = 1
@@ -194,19 +207,21 @@ mouse_filter = 2
 [node name="TextContainer1" type="VBoxContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI"]
 auto_translate_mode = 1
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -338.5
-offset_top = -213.0
-offset_right = 338.5
+offset_top = -119.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
+[node name="PastContainer" type="VBoxContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="NameContainer" type="PanelContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
@@ -228,16 +243,19 @@ text = "Name Label Here"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
 theme_override_constants/margin_left = -9
 
 [node name="Panel" type="PanelContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/MarginContainer2"]
 auto_translate_mode = 1
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/MarginContainer2/Panel"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 1
@@ -246,8 +264,10 @@ theme_override_constants/margin_bottom = 1
 
 [node name="BodyLabel" type="RichTextLabel" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1/MarginContainer2/Panel/MarginContainer"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(670, 121.41)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 1
 bbcode_enabled = true
 text = "Text Body Here
@@ -257,6 +277,7 @@ fit_content = true
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1"]
+visible = false
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 mouse_filter = 2
@@ -274,10 +295,6 @@ size_flags_horizontal = 0
 mouse_filter = 2
 texture = ExtResource("6_mh4vb")
 stretch_mode = 2
-
-[node name="Control" type="Control" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/TextContainer1"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
 
 [node name="TextContainer2" type="CenterContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI"]
 auto_translate_mode = 1
@@ -474,6 +491,7 @@ stretch_mode = 2
 
 [node name="ChoiceContainer" type="PanelContainer" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI"]
 auto_translate_mode = 1
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -528,6 +546,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_6jtk0")
 text = "History"
 
 [node name="MenuButton" type="Button" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI/ControlsContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_outline_color = Color(0.909437, 0.742585, 0.7728, 0.286275)
@@ -580,6 +599,7 @@ visible = false
 layout_mode = 1
 
 [node name="RollingCredits" parent="Camera2D/VNUICanvasLayer/VNUIRoot" instance=ExtResource("17_gnute")]
+visible = false
 layout_mode = 1
 
 [node name="StartCover" type="ColorRect" parent="Camera2D/VNUICanvasLayer"]
@@ -594,6 +614,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("13_qfsh6")
 
 [node name="ScreenContainer" type="Control" parent="Camera2D/VNUICanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

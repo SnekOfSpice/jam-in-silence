@@ -1,6 +1,6 @@
 {
 	"editor": {
-		"current_page_number": 0,
+		"current_page_number": 2,
 		"ingest_capitalize": false,
 		"ingest_whitespace": true,
 		"page_view": 0,
@@ -268,6 +268,9 @@
 			"use_ui": {
 
 			},
+			"wait": {
+
+			},
 			"wound_fx": {
 
 			},
@@ -285,7 +288,7 @@
 				]
 			}
 		],
-		"id_counter": -9223372036854775784,
+		"id_counter": -9223372036854775591,
 		"ingestion_actor_declaration": "s: stella\np: pedro\nr: rose\nc: starcvtcher\nl: lucy\ni: impawsiblzzzz\nsys: system",
 		"locales_to_export": [
 			"af_ZA",
@@ -598,7 +601,7 @@
 					{
 						"address": "1.0",
 						"conditionals": {
-							"behavior": 0.0,
+							"behavior": 0,
 							"behavior_key": "Show",
 							"facts": {
 								"fact_data_by_name": {
@@ -608,7 +611,7 @@
 							},
 							"meta.controls_collapsed": true,
 							"meta.visible": false,
-							"operand": 0.0,
+							"operand": 0,
 							"operand_args": [],
 							"operand_key": "AND"
 						},
@@ -627,7 +630,7 @@
 						},
 						"header": [
 							{
-								"data_type": 2.0,
+								"data_type": 2,
 								"property_name": "chatlog",
 								"values": [
 									false,
@@ -636,23 +639,23 @@
 							}
 						],
 						"id": "1747980880.789--9223372036854775762",
-						"line_type": 0.0,
+						"line_type": 0,
 						"meta.conditionals_visible": false,
 						"meta.facts_visible": false,
-						"meta.indent_level": 0.0,
+						"meta.indent_level": 0,
 						"meta.is_head_editable": false,
-						"meta.line_index": 0.0,
+						"meta.line_index": 0,
 						"meta.selector": {
 							"selected": false
 						},
 						"skip": false
 					}
 				],
-				"meta.address_mode_next": 0.0,
-				"meta.scroll_vertical": 0.0,
+				"meta.address_mode_next": 0,
+				"meta.scroll_vertical": 0,
 				"meta.selected": false,
 				"next": 2.0,
-				"number": 1.0,
+				"number": 1,
 				"page_key": "smoking at window",
 				"terminate": false
 			},
@@ -696,7 +699,7 @@
 								"data_type": 2,
 								"property_name": "chatlog",
 								"values": [
-									false,
+									true,
 									null
 								]
 							}
@@ -712,6 +715,110 @@
 							"selected": false
 						},
 						"skip": false
+					},
+					{
+						"address": "2.1",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"delay_after": 0.0,
+							"delay_before": 0.0,
+							"meta.has_reverse": false,
+							"meta.reverse_text": "",
+							"meta.text": "wait(2)",
+							"meta.validation_status": "OK",
+							"name": "wait",
+							"reverse_name": ""
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									false,
+									null
+								]
+							}
+						],
+						"id": "1747982857.826--9223372036854775591",
+						"line_type": 2,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 1,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					},
+					{
+						"address": "2.2",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981861.776--9223372036854775760"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									true,
+									null
+								]
+							}
+						],
+						"id": "1747981861.776--9223372036854775761",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 2,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
 					}
 				],
 				"meta.address_mode_next": 0,
@@ -719,7 +826,7 @@
 				"meta.selected": false,
 				"next": 3.0,
 				"number": 2,
-				"page_key": "",
+				"page_key": "texting with starcvtcher",
 				"terminate": false
 			},
 			"3": {
@@ -731,9 +838,9 @@
 				},
 				"lines": [
 					{
-						"address": "1.0",
+						"address": "3.0",
 						"conditionals": {
-							"behavior": 0.0,
+							"behavior": 0,
 							"behavior_key": "Show",
 							"facts": {
 								"fact_data_by_name": {
@@ -743,7 +850,369 @@
 							},
 							"meta.controls_collapsed": true,
 							"meta.visible": false,
-							"operand": 0.0,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981886.784--9223372036854775758"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									false,
+									null
+								]
+							}
+						],
+						"id": "1747981886.784--9223372036854775759",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 0,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					},
+					{
+						"address": "3.1",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981891.758--9223372036854775756"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									false,
+									null
+								]
+							}
+						],
+						"id": "1747981891.758--9223372036854775757",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 1,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					}
+				],
+				"meta.address_mode_next": 0,
+				"meta.scroll_vertical": 105,
+				"meta.selected": false,
+				"next": 4.0,
+				"number": 3,
+				"page_key": "rose",
+				"terminate": false
+			},
+			"4": {
+				"facts": {
+					"fact_data_by_name": {
+
+					},
+					"meta.visible": false
+				},
+				"lines": [
+					{
+						"address": "4.0",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981931.762--9223372036854775744"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									true,
+									null
+								]
+							}
+						],
+						"id": "1747981931.762--9223372036854775745",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 0,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					}
+				],
+				"meta.address_mode_next": 0,
+				"meta.scroll_vertical": 0,
+				"meta.selected": false,
+				"next": 5.0,
+				"number": 4,
+				"page_key": "bad news online",
+				"terminate": false
+			},
+			"5": {
+				"facts": {
+					"fact_data_by_name": {
+
+					},
+					"meta.visible": false
+				},
+				"lines": [
+					{
+						"address": "5.0",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981966.080--9223372036854775720"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									false,
+									null
+								]
+							}
+						],
+						"id": "1747981966.079--9223372036854775721",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 0,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					}
+				],
+				"meta.address_mode_next": 0,
+				"meta.scroll_vertical": 0,
+				"meta.selected": false,
+				"next": 6.0,
+				"number": 5,
+				"page_key": "chat with pedro 2",
+				"terminate": false
+			},
+			"6": {
+				"facts": {
+					"fact_data_by_name": {
+
+					},
+					"meta.visible": false
+				},
+				"lines": [
+					{
+						"address": "6.0",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981981.779--9223372036854775718"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									true,
+									null
+								]
+							}
+						],
+						"id": "1747981981.779--9223372036854775719",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 0,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					}
+				],
+				"meta.address_mode_next": 0,
+				"meta.scroll_vertical": 0,
+				"meta.selected": false,
+				"next": 7.0,
+				"number": 6,
+				"page_key": "dead girl switch",
+				"terminate": false
+			},
+			"7": {
+				"facts": {
+					"fact_data_by_name": {
+
+					},
+					"meta.visible": false
+				},
+				"lines": [
+					{
+						"address": "7.0",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
+							"operand_args": [],
+							"operand_key": "AND"
+						},
+						"content": {
+							"meta.validation_status": "OK",
+							"text_id": "1747981991.821--9223372036854775712"
+						},
+						"facts": {
+							"fact_data_by_name": {
+
+							},
+							"meta.visible": false
+						},
+						"header": [
+							{
+								"data_type": 2,
+								"property_name": "chatlog",
+								"values": [
+									false,
+									null
+								]
+							}
+						],
+						"id": "1747982412.771--9223372036854775805",
+						"line_type": 0,
+						"meta.conditionals_visible": false,
+						"meta.facts_visible": false,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 0,
+						"meta.selector": {
+							"selected": false
+						},
+						"skip": false
+					},
+					{
+						"address": "7.1",
+						"conditionals": {
+							"behavior": 0,
+							"behavior_key": "Show",
+							"facts": {
+								"fact_data_by_name": {
+
+								},
+								"meta.visible": false
+							},
+							"meta.controls_collapsed": true,
+							"meta.visible": false,
+							"operand": 0,
 							"operand_args": [],
 							"operand_key": "AND"
 						},
@@ -759,7 +1228,7 @@
 						},
 						"header": [
 							{
-								"data_type": 2.0,
+								"data_type": 2,
 								"property_name": "chatlog",
 								"values": [
 									false,
@@ -767,24 +1236,24 @@
 								]
 							}
 						],
-						"id": "1747980568.680--9223372036854775793",
-						"line_type": 0.0,
+						"id": "1747982412.771--9223372036854775804",
+						"line_type": 0,
 						"meta.conditionals_visible": false,
 						"meta.facts_visible": false,
-						"meta.indent_level": 0.0,
-						"meta.is_head_editable": true,
-						"meta.line_index": 0.0,
+						"meta.indent_level": 0,
+						"meta.is_head_editable": false,
+						"meta.line_index": 1,
 						"meta.selector": {
 							"selected": false
 						},
 						"skip": false
 					}
 				],
-				"meta.address_mode_next": 0.0,
-				"meta.scroll_vertical": 0.0,
+				"meta.address_mode_next": 0,
+				"meta.scroll_vertical": 0,
 				"meta.selected": false,
-				"next": 4.0,
-				"number": 3.0,
+				"next": 7.0,
+				"number": 7,
 				"page_key": "lucy's letter",
 				"terminate": true
 			}
@@ -806,7 +1275,14 @@
 			"1747980568.680--9223372036854775792": "[]>lucy: Hi Stella,\nsorry to do this to you.<mp>\nA very stupid part of my brain is telling me to feel sorry for you. Because you fought so hard and so often to keep me alive, only to end up with my corpse in your arms anyways. But I'll try to ignore it as I write this letter.\nI'm thankful for the time we had together. You've truly been one of the best friends I ever had the honor of calling my contemporary. You are a profoundly insightful individual, and deserve all the happiness this life has to offer.<mp>\nIf you want to know the why... you already know it, kinda. It's not like life isn't worth experiencing. But I am through with it. There is only so much mental strain I can take before I get crushed underneath... everything. I can barely remember the good times. But somehow my regrets and existential pain remain. And pile up. Every year becomes increasingly exhausting than the last. On a fundamental level. I do not want to live a life where I spend a growing number of days doing nothing but fighting depression. I'm tired. I struggle to feel like I belong anywhere.<mp>\nI love you.<mp>\nI love you with all of my heart and soul and even though I am in the process of running a blade through your heart with these words, I assure you, that without you, my night sky would've been unimaginably dimmer.<mp>\nStella. I entrust you with large parts of my former life. If there is one girl in the world that can leave with this, I know it to be you.<mp>\nYours dearest,\nLucy",
 			"1747980855.812--9223372036854775763": "[]>pedro: also can't really get anything down, huh?\n[]>stella: I... just want her back... (shake and smaller font size)\n[]>stella: fuck\n[]>stella: why did we have to go out to eat in public\n[]>pedro: because were kinda stupid\n[]>stella: wanna get up?\n[]>pedro: sure\n[]>pedro: I'll pay, be there in a sec",
 			"1747980880.789--9223372036854775761": "[]>stella: I hope youre in a better place now\n[]>stella: today was rough\n[]>stella: probate court was more intimidating than I thought\n[]>stella: almost at the end of the pack today\n[]>stella: sorry\n[]>stella: I know you'd prefer if I didn't\n[]>stella: I'll smoke less again, promise.\n[]>stella: just for today.\n[]>stella: ...\n[]>stella: ...\n[]>stella: ... sorry, lucy.\n[]>stella: ...\n[]>stella: thank you for the letter. I'll... read it soon.<call:black_fade(5,3,5,true,none,none)>\n[]>stella: fuucking hell\n[]>stella: what was up with you?\n[]>stella: were you just struggling to find someone you'd consider close enough to put into your will?\n[]>stella: why's there pedro and me and like 1 other person at the other side of the country and twice as many discord handles\n[]>stella: what a silly child of the internet you were\n[]>stella: tearing up again\n[]>stella: great\n[]>stella: fuck",
-			"1747980915.791--9223372036854775759": "[]>impawsiblzzzz:lmao",
+			"1747980915.791--9223372036854775759": "[]>system: <clname:lucy>@ <clname:starcvtcher>@ 8:21 PM 2025-05-31\n[]>lucy: hi\n[]>starcvtcher: hi :3\n[]>starcvtcher: faggot\n[]>lucy: hey listen, this is stella, I'm a friend of infinite\n[]>lucy: or lucy, idk if you went by screen names\n[]>starcvtcher: yea i know\n[]>lucy: i have some news\n[]>lucy: bad news\n[]>starcvtcher: ?\n[]>lucy: sad news\n[]>starcvtcher: ,, mew..\n[]>lucy: ok fuck\n[]>lucy: lucy died\n[]>lucy: and you were the first name / handle she put in her will\n[]>lucy: and I wanted to let you know before some fuckass official letter breaks the news\n[]>lucy: and also, if you wanna talk or grieve with some others, my handle is @<clname:stella>\n[]>lucy: ik we dont really know each other\n[]>lucy: at all\n[]>starcvtcher: is fine\n[]>starcvtcher: i\n[]>starcvtcher: ,,\n[]>lucy: do you wanna chat more?\n[]>starcvtcher: well text u on your acc",
+			"1747981861.776--9223372036854775760": "[]>system: <clname:starcvtcher>@ <clname:stella>@ 8:34 PM 2025-05-31\n[]>starcvtcher: hi\n[]>starcvtcher: this sucks so hard\n[]>starcvtcher: also fuck imm so high rn\n[]>stella: shit lol\n[]>starcvtcher: y,yeag,,\n[]>stella: what're you on?\n[]>starcvtcher: uhh\n[]>starcvtcher: ket\n[]>starcvtcher: and\n[]>starcvtcher: acid\n[]>stella: based\n[]>stella: idk what i'm trying to even say here\n[]>starcvtcher: its fine\n[]>starcvtcher: when\n[]>stella: when did she die?\n[]>starcvtcher: yea\n[]>stella: on the 18th\n[]>stella: was a rainy afternoon here\n[]>starcvtcher: was it suicide ?\n[]>system: <clname:starcvtcher>@ <clname:stella>@ 8:38 PM 2025-05-31\n[]>starcvtcher: you dont hav to asnwer\n[]>stella: it was\n[]>starcvtcher: im,, sorry..\n[]>starcvtcher: genuinely\n[]>starcvtcher: fuck\n[]>stella: she got hit by a truck with forearms and wrists sliced up\n[]>stella: she didnt deserve such a shit death\n[]>stella: fuck im tearing up",
+			"1747981886.784--9223372036854775758": "[]>rose: Hii, great to see you again!\n[]>stella: yea, likewise.\n[]>rose: I was so surprised that you wanted to meet up again\n[]>rose: but pleasantly so\n[]>stella: I'm glad.\n[]>rose: You said you had some news?\n[]>stella: Fuck...\n[]>stella: Wanna go for a walk? there's the park down the street isn't there?\n[]>rose: sure!\n[]>rose: Is it... bad news?\n[]>stella: Yes.\n[]>rose: Oh...\n[]>stella: Lets go.\n[]>stella: ...\n[]>stella: Lucy died.\n[]>rose: What?\n[]>stella: Dead. On the 18th.",
+			"1747981891.758--9223372036854775756": "[]>stella: I had the will read out with Pedro last week on the 30th, and barely anyone was mentioned there.\n[]>stella: so we've been slowly going through who we think it was close to and breaking the news.\n[]>rose: ...\n[]>stella: ...\n[]>rose: ...we graduated not even 2 years ago\n[]>stella: Heh. I know.\n[]>stella: Still remember the party afterwards.\n[]>stella: She was so hammered.\n[]>rose: ...\n[]>rose: You carried us both back to my apartment\n[]>stella: which you didn't even remember, by the way\n[]>rose: I had always been bad with directions\n[]>stella: Lucy couldn't even stand upright anymore and knew the way\n[]>rose: She was so real for that\n[]>stella: ...\n[]>rose: Was as in...\n[]>rose: on that evening\n[]>rose: ...\n[]>stella: ...\n[]>rose: Fuck this permanence\n[]>stella: Fuck this permanence\n[]>rose: Ugh...\n[]>rose: Ok I know this is supposed to be the other way around, but how are you coping with it?\n[]>rose: I feel like I'll be better if I can listen to your headspace\n[]>stella: ...\n[]>stella: It's been difficult\n[]>stella: I cry so fucking much\n[]>stella: I miss her so much\n[]>rose: Mhm\n[]>rose: I expect I'll cry too, once the shock is gone.\n[]>stella: Text me if you need it, btw.\n[]>rose: I will take you up on the offer\n[]>rose: And you're just talking to those you know about it?\n[]>stella: Sigh... you're like the third person I have this talk with\n[]>stella: How horrifying that ...\n[]>stella: A routine talking about my dead friend?\n[]>rose: Humans are good at pattern recognition.\n[]>stella: ?\n[]>rose: If it becomes slightly regular, your brain will hone in on it, is what I'm trying to say\n[]>rose: Don't feel bad about it\n[]>stella: I know\n[]>rose: ...\n[]>stella: ...\n[]>stella: we knew each other for like 5 years ffs\n[]>stella: I guess a fifth of your life is long enough to consider me worthy to put into your will.\n[]>stella: Fuck.\n[]>rose: I only really met her a few months before we graduated\n[]>stella: That's still around 2 years.\n[]>stella: makes you ancient in my books.\n[]>stella: and in hers too.\n[]>rose: Was she meeting that many new people all the time?\n[]>stella: I think so.",
+			"1747981931.762--9223372036854775744": "[]>starcvtcher: starcvtcher\n[]>impawsiblzzzz: impawsiblzzzz\n[]>system: <clname:starcvtcher>@ <clname:impawsiblzzzz>@ 3:01 AM 2025-06-01\n[]>starcvtcher: hey bitch we gotta talk\n[]>starcvtcher: i\n[]>starcvtcher: uhm\n[]>starcvtcher: if you have time for Bad News\n[]>impawsiblzzzz: hi\n[]>impawsiblzzzz: yea\n[]>starcvtcher: like\n[]>starcvtcher: ok fuck\n[]>starcvtcher: infinite died\n[]>impawsiblzzzz: fr??\n[]>starcvtcher: actually died. killed itself\n[]>impawsiblzzzz: fuck me\n[]>starcvtcher: one of its irls texted me and shit and i was kinda not in the Physical Condition to address or express my emotions then\n[]>starcvtcher: but been bawling my eyes out for the last day or so\n[]>starcvtcher: was always happy to hear it failed an attempt\n[]>starcvtcher: 3 this year already\n[]>impawsiblzzzz: damn\n[]>starcvtcher: dunno what was different this time around\n[]>impawsiblzzzz: maybe just some factots we can't know\n[]>impawsiblzzzz: and\n[]>impawsiblzzzz: yea idk shit's fucked\n[]>impawsiblzzzz: we didn't text much but a few times and ik you were close\n[]>starcvtcher: we were\n[]>starcvtcher: yea idk where im going with this\n[]>impawsiblzzzz: ill be here if you need\n[]>starcvtcher: ikty\n[]>starcvtcher: gonna go offline again for a bit\n[]>starcvtcher: been just kinda zoning out to cope\n[]>starcvtcher: but ill be back\n[]>impawsiblzzzz: take care <3\n[]>starcvtcher: <3",
+			"1747981966.080--9223372036854775720": "[]>pedro: it's been a while and if you dont wanna answer that's ok too\n[]>stella: yea?\n[]>pedro: did you read the letter yet that was in the will?\n[]>stella: ...\n[]>stella: I'll do it when I feel ready.\n[]>stella: but please dont be mad if i dont tell you\n[]>pedro: absolutely no worries, stella\n[]>pedro: howve you been coping?\n[]>stella: too depressed to daydrink\n[]>pedro: ...\n[]>stella: you?",
+			"1747981981.779--9223372036854775718": "[]>system: <clname:starcvtcher>@ <clname:impawsiblzzzz>@ 3:01 AM 2025-06-05\n[]>starcvtcher: hi so\n[]>impawsiblzzzz: yea\n[]>starcvtcher: there was like a dead girl switch\n[]>impawsiblzzzz: huh\n[]>starcvtcher: I have a link\n[]>starcvtcher: it's a recording\n[]>starcvtcher: of infinite\n[]>impawsiblzzzz: of what\n[]>starcvtcher: it cutting itself\n[]>starcvtcher: metadata says its from the day\n[]>impawsiblzzzz: ...\n[]>starcvtcher: this is so fucked\n[]>starcvtcher: we talked about this\n[]>starcvtcher: i always thought it would go differntly than this\n[]>starcvtcher: idk how 2 feel abt this\n[]>impawsiblzzzz: that sounds\n[]>impawsiblzzzz: conflicted\n[]>starcvtcher: you have no idea\n[]>starcvtcher: infinite and I were so Problematic\n[]>starcvtcher: or, are, i guess\n[]>starcvtcher: wit this\n[]>starcvtcher: weve literally cut ourselfs in front of the other\n[]>starcvtcher: for like\n[]>starcvtcher: sex reasons\n[]>impawsiblzzzz: hot\n[]>starcvtcher: ikr\n[]>starcvtcher: so this is\n[]>starcvtcher: so fucked\n[]>starcvtcher: bcuz a part of me is gettng hard from this\n[]>starcvtcher: ok yk which part but yk\n[]>starcvtcher: there are Conflicting Emotions\n[]>starcvtcher: its fucking dead\n[]>starcvtcher: and one of its final acts was to record a snuff / sex / sh vid\n[]>starcvtcher: wev gotten off to this shit while we were both alive\n[]>starcvtcher: and now\n[]>starcvtcher: do i honor its memory by\n[]>starcvtcher: dfjghbjdfgh\n[]>impawsiblzzzz: do it if it feels right\n[]>impawsiblzzzz: dont if not\n[]>impawsiblzzzz: ez\n[]>impawsiblzzzz: i think you knew it well enough to judge this one\n[]>impawsiblzzzz: evidently it trusted you enough to send you this stuff\n[]>impawsiblzzzz: idk if you want me to interpret this\n[]>impawsiblzzzz: it sending you this\n[]>starcvtcher: idk\n[]>impawsiblzzzz: its up to interpretation\n[]>impawsiblzzzz: maybe t was just a final act of\n[]>impawsiblzzzz: hey\n[]>impawsiblzzzz: I Fucking Exist\n[]>impawsiblzzzz: but you also meant a lot to it\n[]>impawsiblzzzz: gave it space to not be alone with whatever psychosexual shit is wrong with yo tow\n[]>impawsiblzzzz: which i think is so so valuable\n[]>impawsiblzzzz: yea sure we freaks might not make it to 30\n[]>impawsiblzzzz: but we have each other\n[]>impawsiblzzzz: for as long as it lasts\n[]>impawsiblzzzz: ad whatecver and whereever we drag beauty out from that\n[]>impawsiblzzzz: is worth it\n[]>impawsiblzzzz: i think\n[]>starcvtcher: so\n[]>impawsiblzzzz: fucking idk\n[]>impawsiblzzzz: dont fuck your own head too hard by jacking off to the presuicide sh vid of your internet friend\n[]>impawsiblzzzz: but also know that if you do\n[]>impawsiblzzzz: its ok\n[]>impawsiblzzzz: i wont judge\n[]>impawsiblzzzz: and you and i and especially infinite know what this means to you two",
+			"1747981991.821--9223372036854775712": "[]>stella: Hi Lucy.\n[]>stella: I'm not smoking today, see?\n[]>stella: ...\n[]>stella: please see...\n[]>stella: ...\n[]>stella: fuck.\n[]>stella: I miss you so hard.\n[]>stella: ...\n[]>stella: Even though you'd...\n[]>stella: you'd probably go \"it's ok\"\n[]>stella: \"whatever it takes just to feel a lil' okay\"\n[]>stella: and I'd feel your radiance and know you wouldn't judge me\n[]>stella: and you'd do it\n[]>stella: always\n[]>stella: ...\n[]>stella: god fuck\n[]>stella: ...\n[]>stella: you can't eve imagine the hole you left behind\n[]>stella: you cared so much.\n[]>stella: it's so difficult.\n[]>stella: and...\n[]>stella: fuck.\n[]>stella: not smoking today.\n[]>stella: Yay me.\n[]>stella: I'm giving you a big hug.\n[]>stella: and im not getting ash on your letter.\n[]>stella: ...\n[]>stella: I miss you.\n[]>stella: I miss you so much.\n[]>stella: I miss you every single fucking day and it's not really getting any better.\n[]>stella: Is this what you've felt like?\n[]>stella: all the time?\n[]>stella: fuck I'm so sorry.\n[]>stella: Ugh what am I saying\n[]>stella: I hope it was the right decision.\n[]>stella: ...\n[]>stella: Letter time.",
 			"amber-is-happy": "[]>amber{amber-emotion|happy}: I'm really happy to hear that! <mp>I think you're cool too!"
 		},
 		"text_lead_time_other_actor": 0.0,

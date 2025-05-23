@@ -57,6 +57,7 @@ func _ready():
 	ParserEvents.instruction_started.connect(on_instruction_started)
 	ParserEvents.instruction_completed.connect(on_instruction_completed)
 	ParserEvents.read_new_line.connect(on_read_new_line)
+	ParserEvents.new_header.connect(on_new_header)
 	
 	GameWorld.game_stage = self
 	
@@ -79,13 +80,29 @@ func _ready():
 	if callable_upon_blocker_clear:
 		callable_upon_blocker_clear.call()
 	else:
-		Parser.reset_and_start()
+		Parser.reset_and_start(2)
 	
 	await get_tree().process_frame
 	find_child("StartCover").visible = false
 
 func on_read_new_line(_line_index:int):
 	Options.save_gamestate()
+
+func on_new_header(header:Array[Dictionary]):
+	for property : Dictionary in header:
+		match property.get("property_name"):
+			"chatlog":
+				var enabled : bool = property.get("values")[0]
+				$LineReader.chatlog_enabled = enabled
+				%PastContainer.visible = enabled
+				if enabled:
+					$LineReader.custom_text_speed_override = LineReader.MAX_TEXT_SPEED
+					$LineReader.enable_keep_past_lines(
+						%PastContainer
+					)
+				else:
+					$LineReader.custom_text_speed_override = -1
+					$LineReader.keep_past_lines = false
 
 func on_tree_exit():
 	GameWorld.game_stage = null

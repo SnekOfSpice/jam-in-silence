@@ -193,3 +193,8 @@ func use_ui(id: float) -> bool:
 func cum(voice: String) -> bool:
 	GameWorld.game_stage.cum(voice)
 	return false
+
+func wait(duration:float) -> bool:
+	var t = get_tree().create_timer(duration)
+	t.timeout.connect(Parser.function_acceded)
+	return true

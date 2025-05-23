@@ -19,6 +19,7 @@ enum NameStyle {
 	NameLabel,
 	## The name will be inserted in front of the text with a sequence of optional spaces and characters (See [param prepend_separator] [param prefix_space] [param prefix_suffix]). [member name_label] will be hidden.
 	Prepend,
+	None,
 }
 
 ## Find an extensive tutorial on how to set up your [LineReader] on GitHub!
@@ -71,9 +72,6 @@ var _auto_continue_duration:= auto_continue_delay
 ## If [member keep_past_lines] is true, limits the number of lines saved to [member past_lines_container][br]
 ## Default of -1 means no upper limit.
 @export var max_past_lines := -1
-## If true, the displayed actor names will also be prepended to the text
-## saved with [member keep_past_lines].
-@export var preserve_name_in_past_lines := true
 ## [b]Optional[/b] [RichTextLabel] scene that gets used to deposit past lines saved by [member keep_past_lines]. By default, the [LineReader] will create a [RichTextLabel] by itself.
 @export var past_line_label:PackedScene
 var _auto_advance := false
@@ -193,6 +191,7 @@ var name_container: Control:
 ##     return text
 ## [/codeblock]
 @export var body_label_function_funnel : Array[String]
+@export var body_label_tint_lines := false
 @export_subgroup("Chatlog", "chatlog")
 ## If true, and dialog syntax is used (default in DIISIS), the text inside a Text Line will instead
 ## be formatted like a chatlog, where all speaking parts are concatonated and speaking names are tinted in the colors set in [member chatlog_color_map].[br]
@@ -405,7 +404,6 @@ func serialize() -> Dictionary:
 	result["next_pause_type"] = _next_pause_type 
 	result["pause_positions"] = _pause_positions 
 	result["pause_types"] = _pause_types
-	result["preserve_name_in_past_lines"] = preserve_name_in_past_lines
 	result["remaining_auto_pause_duration"] = _remaining_auto_pause_duration 
 	result["showing_text"] = _showing_text 
 	result["terminated"] = terminated
@@ -448,7 +446,6 @@ func deserialize(data: Dictionary):
 	_next_pause_type = int(data.get("next_pause_type"))
 	_pause_positions = data.get("pause_positions")
 	_pause_types = data.get("pause_types")
-	preserve_name_in_past_lines = data.get("preserve_name_in_past_lines", true)
 	_remaining_auto_pause_duration = data.get("remaining_auto_pause_duration")
 	_showing_text = data.get("showing_text")
 	terminated = data.get("terminated")
@@ -1476,7 +1473,9 @@ func _read_next_chunk():
 		_lead_time = Parser.text_lead_time_same_actor
 	
 	_visible_prepend_offset = 0
-	if name_style == NameStyle.Prepend:
+	if name_style == NameStyle.None:
+		name_container.modulate.a = 0.0
+	elif name_style == NameStyle.Prepend:
 		name_container.modulate.a = 0.0
 		var display_name: String = name_map.get(current_raw_name, current_raw_name)
 		var name_color :Color = _get_actor_color(current_raw_name)
@@ -1496,6 +1495,9 @@ func _read_next_chunk():
 		while l < _pause_positions.size():
 			_pause_positions[l] = _pause_positions[l] + name_prepend_length
 			l += 1
+	
+	if body_label_tint_lines and not chatlog_enabled:
+		cleaned_text = str("[color=", _get_actor_color(current_raw_name).to_html(), "]", cleaned_text, "[/color]")
 	
 	var old_text = body_label.text
 	_set_body_label_text(cleaned_text)
@@ -1586,9 +1588,10 @@ func _set_body_label_text(text: String):
 			past_line.custom_minimum_size.x = body_label.custom_minimum_size.x
 			past_line.fit_content = true
 			past_line.bbcode_enabled = true
+			past_line.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
 		var past_text := ""
-		if preserve_name_in_past_lines and not _last_raw_name in blank_names and not body_label.text.is_empty():
+		if not _last_raw_name in blank_names and not body_label.text.is_empty() and not chatlog_enabled and name_style == NameStyle.Prepend:
 			var actor_prefix := _wrap_in_color_tags_if_present(_last_raw_name)
 			past_text = str(actor_prefix, _get_prepend_separator_sequence())
 		
@@ -1617,6 +1620,8 @@ func _wrap_in_color_tags_if_present(actor_name:String) -> String:
 
 ## Sets [param body_label]. If [param keep_text] is [code]true[/code], the text from the previous [param body_label] will be transferred to the passed argument.
 func set_body_label(new_body_label:RichTextLabel, keep_text := true):
+	if new_body_label == body_label:
+		return
 	var switch_text:bool = body_label != new_body_label
 	var old_text : String
 	if switch_text and keep_text:
@@ -1626,12 +1631,11 @@ func set_body_label(new_body_label:RichTextLabel, keep_text := true):
 		body_label.text = old_text
 
 ## Helper function that you can use to switch [param keep_past_lines] to true and transfer all data to the [param new_label]. [param new_label] becomes [param body_label].
-func enable_past_lines(container: VBoxContainer, new_label:RichTextLabel, name_style := NameStyle.Prepend):
+func enable_keep_past_lines(container: VBoxContainer, new_label:=body_label, new_name_style := name_style):
 	keep_past_lines = true
 	self.past_lines_container = container
-	self.name_style = name_style
+	name_style = new_name_style
 	set_body_label(new_label)
-		
 
 func _find_next_pause():
 	if _pause_types.size() > 0 and _next_pause_position_index < _pause_types.size():
@@ -1917,12 +1921,16 @@ func update_name_label(actor_name: String):
 			name_container.modulate.a = 0.0
 		else:
 			name_container.modulate.a = 1.0
+	#if name_style == 
+		#name_container.modulate.a = 0.0
 	
 	var name_visible:bool
 	if name_style == NameStyle.NameLabel:
 		name_visible = name_container.modulate.a > 0.0
 	elif name_style == NameStyle.Prepend:
 		name_visible = current_raw_name in blank_names
+	elif name_style == NameStyle.None:
+		name_visible = false
 	ParserEvents.display_name_changed.emit(display_name, name_visible)
 	ParserEvents.actor_name_changed.emit(actor_name, name_visible)
 
