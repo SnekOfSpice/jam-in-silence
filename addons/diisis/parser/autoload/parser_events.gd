@@ -111,7 +111,8 @@ signal notify_string_positions(
 signal function_called(
 	method_name: String,
 	arguments: Array,
-	at_index: int
+	at_index: int,
+	result
 )
 
 signal comment(

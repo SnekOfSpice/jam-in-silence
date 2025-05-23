@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://he5vhglqe6l3"]
+
+[ext_resource type="Texture2D" uid="uid://beewm0xmunmr4" path="res://game/stages/animations/splash cover.png" id="1_hylcb"]
+[ext_resource type="Script" uid="uid://g3b7ypaandw0" path="res://game/stages/animations/splash_cover.gd" id="2_nmtjy"]
+[ext_resource type="Texture2D" uid="uid://dc0y4epoi36ap" path="res://game/visuals/icon512.png" id="2_qgu4b"]
+
+[node name="SplashCover" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_hylcb")
+script = ExtResource("2_nmtjy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qgu4b")

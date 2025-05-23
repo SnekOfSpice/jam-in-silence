@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://culiy8l2xf38k"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://culiy8l2xf38k"]
 
 [ext_resource type="FontFile" uid="uid://clrlhmyq33ss4" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-Bold.ttf" id="1_5ak1x"]
 [ext_resource type="FontFile" uid="uid://cpirwl4u04525" path="res://game/visuals/theme/fonts/ltveritas/LTVeritas-MediumCondensed.ttf" id="1_8qr13"]
@@ -34,6 +34,26 @@ border_width_bottom = 4
 border_color = Color(0.01, 0.01, 0.01, 0.717647)
 border_blend = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg5l4"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7cle"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bk5e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
 [resource]
 Button/fonts/font = ExtResource("1_8qr13")
 Button/styles/hover = SubResource("StyleBoxFlat_b8ewa")
@@ -46,3 +66,6 @@ RichTextLabel/fonts/bold_italics_font = ExtResource("2_8qr13")
 RichTextLabel/fonts/italics_font = ExtResource("3_eg5l4")
 RichTextLabel/fonts/mono_font = ExtResource("4_b8ewa")
 RichTextLabel/fonts/normal_font = ExtResource("5_wclnf")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_eg5l4")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_a7cle")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_5bk5e")

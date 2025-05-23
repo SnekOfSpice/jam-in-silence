@@ -79,7 +79,7 @@ func _ready():
 	if callable_upon_blocker_clear:
 		callable_upon_blocker_clear.call()
 	else:
-		Parser.reset_and_start(7, 2)
+		Parser.reset_and_start()
 	
 	await get_tree().process_frame
 	find_child("StartCover").visible = false
@@ -93,12 +93,11 @@ func on_new_header(header:Array[Dictionary]):
 			"chatlog":
 				var enabled : bool = property.get("values")[0]
 				$LineReader.chatlog_enabled = enabled
-				%PastContainer.visible = enabled
-				%PastParent.visible = enabled
+				%PastContainer.visible = true
+				
 				if enabled:
 					$LineReader.custom_text_speed_override = LineReader.MAX_TEXT_SPEED
-					for child in %PastContainer.get_children():
-						child.queue_free()
+					
 					for i in 100:
 						var filler = Control.new()
 						filler.custom_minimum_size.y = 30
@@ -107,29 +106,40 @@ func on_new_header(header:Array[Dictionary]):
 					$LineReader.enable_keep_past_lines(
 						%PastContainer,
 					)
+					var t = create_tween()
+					t.tween_property(%PastParent, "modulate:a", 1, 1)
 				else:
 					$LineReader.custom_text_speed_override = -1
 					$LineReader.keep_past_lines = false
+					var t = create_tween()
+					t.tween_property(%PastParent, "modulate:a", 0, 1)
+					t.finished.connect(clear_past_container)
+
+func clear_past_container():
+	for child in %PastContainer.get_children():
+		child.queue_free()
 
 func on_tree_exit():
 	GameWorld.game_stage = null
 
 var ui_tween:Tween
 
+@warning_ignore("unused_parameter")
 func on_function_called(
 	method_name: String,
 	arguments: Array,
-	at_index: int
+	at_index: int,
+	result
 ):
-	if method_name == "black_fade":
-		if ui_tween:
-			ui_tween.kill()
+	if method_name in ["black_fade", "wait"]:
+		#if ui_tween:
+			#ui_tween.kill()
 		ui_tween = create_tween()
 		ui_tween.tween_property(find_child("VNUI"), "modulate:a", 0, 1)
 
 func on_acceded():
-	if ui_tween:
-		ui_tween.kill()
+	#if ui_tween:
+		#ui_tween.kill()
 	ui_tween = create_tween()
 	ui_tween.tween_property(find_child("VNUI"), "modulate:a", 1, 1)
 	$LineReader.body_label.text = ""
@@ -173,9 +183,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				var global_dir := global_path.substr(0, global_path.rfind("/"))
 				find_child("VNUIRoot").add_child(notification_popup)
 				notification_popup.init(str("Saved to [url=", global_dir, "]", global_path, "[/url]"))
-			if InputMap.action_has_event("toggle_auto_continue", event):
-				line_reader.auto_continue = not line_reader.auto_continue
-				Options.auto_continue = line_reader.auto_continue
+			#if InputMap.action_has_event("toggle_auto_continue", event):
+				#line_reader.auto_continue = not line_reader.auto_continue
+				#Options.auto_continue = line_reader.auto_continue
 			if InputMap.action_has_event("toggle_ui", event):
 				if find_child("VNUI").visible:
 					hide_ui()
@@ -506,3 +516,13 @@ func set_static(level:float):
 func set_fade_out(lod:float, mix:float):
 	target_lod = lod
 	target_mix = mix
+
+
+func _on_line_reader_request_hide_history_button() -> void:
+	var button : Button = find_child("HistoryButton")
+	var t = create_tween()
+	t.tween_property(button, "modulate:a", 0, 4)
+
+
+func _on_fullscreen_button_pressed() -> void:
+	Options.set_fullscreen(not Options.fullscreen)

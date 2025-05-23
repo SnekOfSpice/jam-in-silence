@@ -19,6 +19,8 @@ signal start_rolling_credits()
 signal splatter(amount:int)
 signal start_chapter_cover(pov_name:String, bottom_text, new_background, zoom, bgm)
 signal request_object_visible(object_name:String, visibility:bool)
+signal request_hide_history_button()
+signal start_splash_cover()
 
 func play_sfx(_name:String):
 	Sound.play_sfx(_name)
@@ -197,4 +199,11 @@ func cum(voice: String) -> bool:
 func wait(duration:float) -> bool:
 	var t = get_tree().create_timer(duration)
 	t.timeout.connect(Parser.function_acceded)
+	return true
+
+func hide_history_button():
+	emit_signal("request_hide_history_button")
+
+func splash_cover():
+	emit_signal("start_splash_cover")
 	return true

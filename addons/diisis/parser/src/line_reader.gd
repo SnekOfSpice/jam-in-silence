@@ -2086,7 +2086,7 @@ func call_from_string(text:String, call_mode := CallMode.Call, call_position := 
 		CallMode.Func:
 			return str(result)
 		CallMode.Call:
-			ParserEvents.function_called.emit(func_name, args, call_position)
+			ParserEvents.function_called.emit(func_name, args, call_position, result)
 			return result
 
 func callv_custom(method_name:String, argv):
