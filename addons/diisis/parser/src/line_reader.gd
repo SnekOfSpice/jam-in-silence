@@ -72,6 +72,9 @@ var _auto_continue_duration:= auto_continue_delay
 ## If [member keep_past_lines] is true, limits the number of lines saved to [member past_lines_container][br]
 ## Default of -1 means no upper limit.
 @export var max_past_lines := -1
+## If true, the displayed actor names will also be prepended to the text
+## saved with [member keep_past_lines].
+@export var preserve_name_in_past_lines := true
 ## [b]Optional[/b] [RichTextLabel] scene that gets used to deposit past lines saved by [member keep_past_lines]. By default, the [LineReader] will create a [RichTextLabel] by itself.
 @export var past_line_label:PackedScene
 var _auto_advance := false
@@ -405,6 +408,7 @@ func serialize() -> Dictionary:
 	result["next_pause_type"] = _next_pause_type 
 	result["pause_positions"] = _pause_positions 
 	result["pause_types"] = _pause_types
+	result["preserve_name_in_past_lines"] = preserve_name_in_past_lines
 	result["remaining_auto_pause_duration"] = _remaining_auto_pause_duration 
 	result["showing_text"] = _showing_text 
 	result["terminated"] = terminated
@@ -448,6 +452,7 @@ func deserialize(data: Dictionary):
 	_next_pause_type = int(data.get("next_pause_type"))
 	_pause_positions = data.get("pause_positions")
 	_pause_types = data.get("pause_types")
+	preserve_name_in_past_lines = data.get("preserve_name_in_past_lines", preserve_name_in_past_lines)
 	_remaining_auto_pause_duration = data.get("remaining_auto_pause_duration")
 	_showing_text = data.get("showing_text")
 	terminated = data.get("terminated")
@@ -566,9 +571,9 @@ func get_preferences() -> Dictionary:
 
 ## Applies the preferences that are usually set by the user. Includes keys:\n[code]text_speed[/code] (float)\n[code]auto_continue[/code] (bool)\n[code]auto_continue_delay[/code] (float)
 func apply_preferences(prefs:Dictionary):
-	text_speed = prefs.get("text_speed", 60.0)
-	auto_continue = prefs.get("auto_continue", false)
-	auto_continue_delay = prefs.get("auto_continue_delay", 2.0)
+	text_speed = prefs.get("text_speed", text_speed)
+	auto_continue = prefs.get("auto_continue", auto_continue)
+	auto_continue_delay = prefs.get("auto_continue_delay", auto_continue_delay)
 
 ## Advances the interpreting of lines from the input file if possible. Will push an appropriate warning if not possible.
 func request_advance():
@@ -1606,9 +1611,10 @@ func _set_body_label_text(text: String):
 			past_line.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
 		var past_text := ""
-		if not _last_raw_name in blank_names and not body_label.text.is_empty() and not chatlog_enabled and name_style == NameStyle.Prepend:
+		if not _last_raw_name in blank_names and not body_label.text.is_empty() and not chatlog_enabled and (name_style == NameStyle.Prepend or (name_style == NameStyle.NameLabel and preserve_name_in_past_lines)):
 			var actor_prefix := _wrap_in_color_tags_if_present(_last_raw_name)
 			past_text = str(actor_prefix, _get_prepend_separator_sequence())
+			
 		
 		var body_label_to_save = body_label.text
 		if name_style == NameStyle.Prepend and not current_raw_name in blank_names:

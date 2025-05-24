@@ -108,13 +108,17 @@ func on_new_header(header:Array[Dictionary]):
 					)
 					var t = create_tween()
 					t.tween_property(%PastParent, "modulate:a", 1, 1)
+					
+					$LineReader.body_label_prefix = "[code]"
+					$LineReader.body_label_suffix = "[/code]"
 				else:
 					$LineReader.custom_text_speed_override = -1
 					$LineReader.keep_past_lines = false
 					var t = create_tween()
 					t.tween_property(%PastParent, "modulate:a", 0, 1)
 					t.finished.connect(clear_past_container)
-
+					$LineReader.body_label_prefix = ""
+					$LineReader.body_label_suffix = ""
 func clear_past_container():
 	for child in %PastContainer.get_children():
 		child.queue_free()
@@ -184,9 +188,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				var global_dir := global_path.substr(0, global_path.rfind("/"))
 				find_child("VNUIRoot").add_child(notification_popup)
 				notification_popup.init(str("Saved to [url=", global_dir, "]", global_path, "[/url]"))
-			#if InputMap.action_has_event("toggle_auto_continue", event):
-				#line_reader.auto_continue = not line_reader.auto_continue
-				#Options.auto_continue = line_reader.auto_continue
+			if InputMap.action_has_event("toggle_auto_continue", event):
+				line_reader.auto_continue = not line_reader.auto_continue
+				Options.auto_continue = line_reader.auto_continue
 			if InputMap.action_has_event("toggle_ui", event):
 				if find_child("VNUI").visible:
 					hide_ui()

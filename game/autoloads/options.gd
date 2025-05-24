@@ -9,7 +9,7 @@ var sfx_volume := 1.0
 @export_group("DIISIS Defaults")
 @export var fullscreen := false
 @export_range(1, LineReader.MAX_TEXT_SPEED, 1) var text_speed := 201
-@export_range(0.1, 60.0, 0.1) var auto_continue_delay := 1.0
+@export_range(0.1, 60.0, 0.1) var auto_continue_delay := 2.0
 @export var auto_continue := false
 
 var save_slot := 0
@@ -31,8 +31,8 @@ func _ready() -> void:
 	music_volume = config.get_value("preferences", "music_volume", 1.0)
 	master_volume = config.get_value("preferences", "master_volume", 1.0)
 	sfx_volume = config.get_value("preferences", "sfx_volume", 1.0)
-	text_speed = config.get_value("preferences", "text_speed", 60)
-	auto_continue_delay = config.get_value("preferences", "auto_continue_delay", 1.0)
+	text_speed = config.get_value("preferences", "text_speed", 50)
+	auto_continue_delay = config.get_value("preferences", "auto_continue_delay", auto_continue_delay)
 	auto_continue = config.get_value("preferences", "auto_continue", false)
 	set_fullscreen(config.get_value("preferences", "fullscreen", false))
 	save_slot = config.get_value("preferences", "save_slot", 0)

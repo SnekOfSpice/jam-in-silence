@@ -22,3 +22,5 @@ func handle_scrollbar_changed():
 	
 	if code_edit:
 		scroll_vertical = scroll_before
+		if code_edit.get_caret_draw_pos().y > size.y:
+			scroll_vertical = int(code_edit.get_caret_draw_pos().y)

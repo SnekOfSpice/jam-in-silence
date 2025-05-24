@@ -97,7 +97,9 @@ script = ExtResource("1_a36me")
 
 [node name="LineReader" type="Node" parent="." node_paths=PackedStringArray("name_label", "body_label", "choice_list", "text_container", "name_container", "choice_container", "choice_title_label", "prompt_unfinished", "prompt_finished")]
 script = ExtResource("3_pms35")
+text_speed = 4.0
 auto_pause_duration = 0.4
+auto_continue_delay = 1.0
 show_text_during_instructions = true
 blank_names = Array[String](["system"])
 color_map = Dictionary[String, Color]({
@@ -540,7 +542,6 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="SplashCover" parent="Camera2D/VNUICanvasLayer/VNUIRoot/VNUI" instance=ExtResource("19_n0qn6")]
-visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0

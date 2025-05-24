@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6nbwi7lgrijy"]
+[gd_scene load_steps=5 format=3 uid="uid://b6nbwi7lgrijy"]
 
 [ext_resource type="Script" uid="uid://crrkao5bv1n7" path="res://game/screens/history.gd" id="1_aiklh"]
 [ext_resource type="Theme" uid="uid://culiy8l2xf38k" path="res://game/visuals/theme/nowhere_belonging_theme.tres" id="1_mug3r"]
 [ext_resource type="StyleBox" uid="uid://dadnwlbrdktog" path="res://game/visuals/theme/background_panel.tres" id="3_cnymx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mug3r"]
 
 [node name="History" type="Control"]
 layout_mode = 3
@@ -34,19 +36,116 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HistoryLabel" type="RichTextLabel" parent="PanelContainer/PanelContainer/VBoxContainer"]
+z_index = 1
 custom_minimum_size = Vector2(0, 425)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 10
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mug3r")
 bbcode_enabled = true
 text = "gfhfghjghj
 ghjghj
+ghjghgfhfghjghj
+ghjghj
+sdfg
+dfg
+dfg
+dfg
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
+ghjghgfhfghjghj
+ghjghj
 ghjgh"
-vertical_alignment = 2
+scroll_following = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 8
 
 [node name="BackButton" type="Button" parent="PanelContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -67,6 +166,7 @@ text = "Entries: 0 - 99"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+focus_mode = 0
 text = "close history"
 
 [connection signal="pressed" from="PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
